@@ -1,0 +1,61 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 80px">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <h1 class="text-center">Patient Registration Form</h1>
+          <form #mypatientForm="ngForm" (ngSubmit)="submitData()">
+
+            <!-- Doctor Name -->
+
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>Doctor Name</mat-label>
+              <mat-select name="visiteddoctor" [(ngModel)]="patient.visiteddoctor" required>
+                <mat-option>Select</mat-option>
+                <mat-option *ngFor="let doctors of doctorlist" [value]="doctors.name">
+                  {{doctors.name}} ({{doctors.specialist}})
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!-- Id -->
+            <mat-form-field id="id" appearance="outline">
+              <mat-label>Patient Id</mat-label>
+              <input required [(ngModel)]="patient.pid" name="pid" type="number" matInput placeholder="Enter Your Id">
+              <mat-hint>Must be unique</mat-hint>
+            </mat-form-field>
+
+            <!-- Dateof Visit -->
+            <mat-form-field id="datepicker" color="accent" appearance="fill">
+              <mat-label>Choose Date Of Visit</mat-label>
+              <input matInput [matDatepicker]="picker1" name="dateofvisit" [(ngModel)]="patient.dateofvisit">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <!-- name -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input required [(ngModel)]="patient.pname" name="pname" type="text" matInput placeholder="Enter Name">
+              <mat-hint>Give Your Name</mat-hint>
+            </mat-form-field>
+
+
+
+            <!--  progress bar -->
+            <div class="spinner" *ngIf="flag">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+            </div>
+            <div class="container text-center">
+              <button id="btn1" [disabled]="mypatientForm.invalid" type="submit" mat-raised-button
+                color="primary">Register</button>
+              <button id="btn2" type="reset" style="margin-left:20px ;" mat-raised-button color="accent">Reset</button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

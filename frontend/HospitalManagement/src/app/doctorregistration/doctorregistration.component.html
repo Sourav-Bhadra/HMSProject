@@ -1,0 +1,59 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 40px">
+      <div class="col-md-6 offset-md-3">
+        <mat-card class="bigmatcard">
+          <h1 class="text-center">Doctor Registration Form</h1>
+          <form #myForm="ngForm"  (ngSubmit)="submitData()">
+            <!-- Id -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Doctor Id</mat-label>
+              <input required [(ngModel)]="doctor.did" name="id" type="number" matInput placeholder="Enter Your Id">
+              <mat-hint>Must be unique</mat-hint>
+            </mat-form-field>
+            <!-- name -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input required [(ngModel)]="doctor.name" name="name" type="text" matInput placeholder="Enter Name">
+              <mat-hint>Give Your Name</mat-hint>
+            </mat-form-field>
+            <!-- Age -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Age</mat-label>
+              <input required [(ngModel)]="doctor.age" name="age" type="number" matInput placeholder="Enter Your Age">
+              <mat-hint>Give Your Age</mat-hint>
+            </mat-form-field>
+            <!-- Gender -->
+            <mat-card style="color:rgba(0,0,0,.6); margin-bottom: 20px;">
+              <mat-label style="margin-right: 20px;">Gender:</mat-label>
+              <mat-radio-group name="gender" [(ngModel)]="doctor.gender" aria-labelledby="example-radio-group-label" class="example-radio-group">
+                  <mat-radio-button value="Male">Male</mat-radio-button>
+                  <mat-radio-button value="Female">Female</mat-radio-button>
+              </mat-radio-group>
+
+            </mat-card>
+
+            <!-- specialist -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Specialization</mat-label>
+              <input required [(ngModel)]="doctor.specialist" name="specialist" type="text" matInput
+                placeholder="Enter Your Specialization Field Here">
+              <mat-hint>Enter Specialization</mat-hint>
+            </mat-form-field>
+
+
+            <!--  progress bar -->
+            <div class="spinner" *ngIf="flag">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+            </div>
+            <div class="container text-center">
+              <button id="btn1" [disabled]="myForm.invalid" type="submit" mat-raised-button color="primary" >Register</button>
+              <button id="btn2" type="reset" style="margin-left:20px ;" mat-raised-button color="accent" >Reset</button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

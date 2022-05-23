@@ -1,0 +1,19 @@
+.full-width{
+  width: 100%;
+}
+table {
+  width: 100%;
+}
+
+
+
+.bigmatcard{
+  border: 2px solid green;
+  margin-top: 100px;
+  border-radius: 20px;
+}
+
+.smallmatcard:not([class*="mat-elevation-z"]) {
+  box-shadow: -8px 5px 1px -1px rgb(0 0 0 / 20%),
+    5px 1px 1px 0px rgb(0 0 0 / 14%), -8px 1px 8px 0px rgb(0 0 0 / 12%);
+}

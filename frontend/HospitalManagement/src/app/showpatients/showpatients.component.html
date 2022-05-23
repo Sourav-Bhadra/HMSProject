@@ -1,0 +1,58 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <mat-card class="bigmatcard">
+          <h1 class="text-center">Show Patient Information</h1>
+
+
+          <!-- Id -->
+          <mat-form-field id="id" appearance="outline" class="full-width">
+            <mat-label>Patient Id</mat-label>
+            <input required [(ngModel)]="patient.pid" name="pid" type="number" matInput placeholder="Enter Your Id"
+              (keyup.enter)="getPatient()">
+            <mat-hint>Must be unique</mat-hint>
+          </mat-form-field>
+          <br>
+          <br>
+
+          <!--  progress bar -->
+          <div class="spinner" *ngIf="flag">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+          </div>
+
+           <mat-card class="smallmatcard full-width" *ngIf="isVisible">
+             <!-- Doctor Table Information -->
+             <table class="container">
+               <tr>
+                 <th mat-sort-header="name">Patient Name</th>
+                 <th mat-sort-header="noOfPatient">Visited Doctor</th>
+                 <th mat-sort-header="specialist">Date Of Visit</th>
+                 <th> Prescription </th>
+               </tr>
+               <tr>
+                 <td>{{patient.pname}}</td>
+                 <td>{{patient.visiteddoctor}}</td>
+                 <td>{{patient.dateofvisit | date}}</td>
+                 <td> <button mat-fab color="primary" mat-button (click)="openDialog()">
+                     <mat-icon>description</mat-icon>
+                   </button>
+
+                 </td>
+               </tr>
+               <br>
+        
+               <div class="btns">
+                 <button mat-raised-button color="warn" routerLink="/home" >Return home</button>
+               </div>
+             </table>
+           </mat-card>
+
+
+        </mat-card>
+      </div>
+    </div>
+   
+  </div>
+</div>
