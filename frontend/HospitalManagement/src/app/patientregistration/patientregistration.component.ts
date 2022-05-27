@@ -34,7 +34,7 @@ export class PatientregistrationComponent implements OnInit {
       this.gotopatient();
        this.snackBar.open("Registered !!", "Ok", {
 
-      duration:500
+      duration:1000
 
     });
       this.router.navigate(['/home']);

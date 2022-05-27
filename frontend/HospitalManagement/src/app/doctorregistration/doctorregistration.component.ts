@@ -28,9 +28,9 @@ export class DoctorregistrationComponent implements OnInit {
       console.log(data);
       this.flag = false;
       this.snackBar.open("Registered !!", "Ok", {
-      
-      duration:500
-      
+
+      duration:1000
+
     });
       this.router.navigate(['/home']);
     }, (error:any) => {

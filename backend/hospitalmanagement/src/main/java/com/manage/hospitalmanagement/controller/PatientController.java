@@ -25,7 +25,7 @@ public class PatientController {
 
     // Get patient
 
-    @GetMapping(value = "/patient/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/patient/{id}")
     public Patient getPatient(@PathVariable int id) {
         return patservice.getPatient(id);
     }
